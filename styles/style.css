@@ -110,6 +110,9 @@ ul {
   grid-template-columns: auto auto;
   justify-content: center;
   gap: 15px;
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: slideIn 1.5s ease-out forwards;
 }
 
 .introduce-myself {
@@ -124,9 +127,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  opacity: 0;
-  transform: translateY(-150px);
-  animation: slideIn 1.5s ease-out forwards;
 }
 
 .div-2 h1 {
@@ -143,14 +143,7 @@ ul {
   border-radius: 4px 8px 8px 4px;
   opacity: 0;
   transform: translateX(-150px);
-  animation: slideIn 1s ease-out forwards;
-}
-
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  animation: slideIn 1.5s ease-out forwards;
 }
 
 .burguer-menu {
@@ -162,7 +155,7 @@ main {
 }
 
 .conteiner {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .skills {
@@ -183,6 +176,19 @@ main {
 
 .social-media-img {
   max-width: 50px;
+}
+
+.skills {
+  opacity: 0;
+  transform: translateX(150px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 800px) {
@@ -230,5 +236,10 @@ main {
 
   .div-2 {
     margin-top: 35px;
+  }
+
+  .social-media {
+    justify-content: center;
+    margin-top: 20px;
   }
 }
