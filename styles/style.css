@@ -18,13 +18,14 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  margin: 10px;
 }
 
 /* Imagens */
 img {
   max-width: 500px;
   object-fit: contain;
-  display: block;
+  display: inline-block;
 }
 
 /* Navegação */
@@ -87,8 +88,12 @@ ul {
 [data-theme="light"] header a {
   color: #000;
 }
+[data-theme="light"] header .link {
+  border: 1px solid #000;
+}
 
 [data-theme="light"] .link a::after {
+  height: 1px;
   background-color: blue;
 }
 
@@ -109,10 +114,9 @@ ul {
 
 .introduce-myself {
   text-indent: 2em;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   font-family: Roboto, sans-serif;
-  font-weight: bold;
   text-align: left;
 }
 
@@ -120,6 +124,9 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  opacity: 0;
+  transform: translateY(-150px);
+  animation: slideIn 1.5s ease-out forwards;
 }
 
 .div-2 h1 {
@@ -129,8 +136,99 @@ ul {
 .right-side {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 25px;
 }
+
 .grid img {
-  border-radius: 4px 8px 8px 0;
+  border-radius: 4px 8px 8px 4px;
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.burguer-menu {
+  display: none;
+}
+
+main {
+  margin: 0 10px;
+}
+
+.conteiner {
+  margin-bottom: 20px;
+}
+
+.skills {
+  margin-top: 20px;
+}
+
+.skills h2 {
+  text-decoration: underline;
+  font-size: 2em;
+  text-align: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.social-media-img {
+  max-width: 50px;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .burguer-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .links {
+    display: none;
+    position: absolute;
+    width: 40%;
+    height: calc(20vh - 10px);
+    top: 30px;
+    padding: 10px;
+    right: 10%;
+    background-color: #e7e7e7;
+    z-index: 1000;
+    transition: 1s ease-in;
+  }
+
+  nav.active .links {
+    display: block;
+  }
+
+  nav.active .links li {
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #000;
+  }
+
+  nav.active .links li a {
+    color: #000;
+  }
+
+  nav.active .right-side {
+    color: black;
+  }
+
+  .div-2 {
+    margin-top: 35px;
+  }
 }
