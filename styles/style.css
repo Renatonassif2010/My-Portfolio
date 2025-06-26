@@ -187,13 +187,14 @@ main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 70px;
   gap: 80px;
 }
 
 .skills-img {
-  max-width: 100px;
+  max-width: 80px;
   transition: 0.3s ease-in-out;
+  animation: icon 3s ease-in-out infinite;
 }
 
 .skills-img:hover {
@@ -201,7 +202,7 @@ main {
 }
 
 .services {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .services h2 {
@@ -209,11 +210,45 @@ main {
   font-size: 2em;
   text-decoration: underline;
 }
+
+.flex-div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.items {
+  max-width: 250px;
+  background: #000;
+  padding: 2rem 1.5rem;
+}
+
+.items h3 {
+  border-bottom: 1px solid grey;
+}
+
+.items p {
+  margin-top: 10px;
+}
 /* Animation */
 @keyframes slideIn {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes icon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
