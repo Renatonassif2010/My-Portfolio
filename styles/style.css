@@ -3,12 +3,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   max-width: 1000px;
   margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -81,7 +85,7 @@ ul {
 }
 
 [data-theme="light"] {
-  background-color: oklch(98.4% 0.003 247.858);
+  background-color: oklch(97% 0.00011 271.152);
   color: #000;
 }
 
@@ -97,11 +101,20 @@ ul {
   background-color: blue;
 }
 
+[data-theme="light"] .items {
+  color: #fff;
+}
+
 /* Conteúdo principal */
 .conteiner {
   margin-top: 75px;
   text-align: center;
   /* Removi text-decoration underline para evitar efeito global */
+}
+#home {
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: slideIn 1.5s ease-out forwards;
 }
 
 .grid {
@@ -110,9 +123,6 @@ ul {
   grid-template-columns: auto auto;
   justify-content: center;
   gap: 15px;
-  opacity: 0;
-  transform: translateX(-150px);
-  animation: slideIn 1.5s ease-out forwards;
 }
 
 .introduce-myself {
@@ -177,32 +187,30 @@ main {
   max-width: 50px;
 }
 
-.skills {
-  opacity: 0;
-  transform: translateX(150px);
-  animation: slideIn 1s ease-out forwards;
-}
-
 .skills-div {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 70px;
+  margin-bottom: 70px;
   gap: 80px;
+  opacity: 0;
+  transform: translateX(150px);
+  animation: slideIn 1s ease-out forwards;
 }
 
 .skills-img {
   max-width: 80px;
+
   transition: 0.3s ease-in-out;
   animation: icon 3s ease-in-out infinite;
 }
 
-.skills-img:hover {
-  transform: scale(1.2);
-}
-
 .services {
   margin-top: 70px;
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: slideIn 1s ease-out forwards;
 }
 
 .services h2 {
@@ -220,17 +228,42 @@ main {
 }
 
 .items {
-  max-width: 250px;
-  background: #000;
+  max-width: 350px;
+  background: #030712;
   padding: 2rem 1.5rem;
+  border-radius: 4px;
 }
 
 .items h3 {
+  position: relative;
+  font-size: 1.5rem;
   border-bottom: 1px solid grey;
 }
 
 .items p {
+  font-size: 1.2rem;
   margin-top: 10px;
+}
+
+.flex-div h3::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 4px;
+  bottom: 0;
+  left: -25px;
+  background-color: blue;
+}
+
+#footer {
+  margin: 50px 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(150px);
+  animation: slideIn 1s ease-out forwards;
+}
+#footer p {
+  font-size: 18px;
 }
 /* Animation */
 @keyframes slideIn {
