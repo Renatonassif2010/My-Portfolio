@@ -1,3 +1,24 @@
+// Contact
+const form = document.getElementById("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name");
+  const message = document.getElementById("message");
+  const phoneNumber = "5511964388098";
+
+  const text = `Olá meu nome é ${name.value}, ${message.value}`;
+  const formatMessage = encodeURIComponent(text);
+
+  const url = `
+  https://whatsa.me/${phoneNumber}/?t=${formatMessage}`;
+  window.open(url, "_blank");
+
+  name.value = "";
+  message.value = "";
+});
+
 // Theme
 const themeSaved = localStorage.getItem("theme") || "dark";
 document.documentElement.setAttribute("data-theme", themeSaved);
@@ -23,26 +44,4 @@ burguer.addEventListener("click", () => {
       nav.classList.remove("active");
     });
   });
-});
-
-// Contact
-
-const form = document.getElementById("form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("name");
-  const message = document.getElementById("message");
-  const phoneNumber = "5511964388098";
-
-  const text = `Olá meu nome é ${name.value}, ${message.value}`;
-  const formatMessage = encodeURIComponent(text);
-
-  const url = `
-https://whatsa.me/${phoneNumber}/?t=${formatMessage}`;
-  window.open(url, "_blank");
-
-  name.value = "";
-  message.value = "";
 });
