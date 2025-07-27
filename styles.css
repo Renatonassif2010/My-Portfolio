@@ -1,0 +1,530 @@
+/* Global Settings */
+:root {
+  /* These are the main colors we're using across the site */
+  --primary-color: #008ed5;
+  --secondary-color: #0099e5;
+  --text-color: #000;
+  --bg-light: #fdfdfd; /* Light background */
+  --white: #fff;
+
+  /* Setting the default font for the whole site */
+  --font-family: "Poppins", sans-serif;
+}
+
+* {
+  /* Resetting margins, padding, and box-sizing so everything behaves consistently */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* Applying the default font across the entire site */
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  /* Smooth scrolling when clicking anchors or navigating */
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  /* Body padding is responsive. It's 0, but we use clamp() to adjust it based on screen size */
+  position: relative;
+  padding: 0 clamp(1rem, 5vw, 50px);
+  margin: 0 auto;
+  max-width: 1500px; /* Max width to keep the site from getting too wide */
+  height: 100vh;
+}
+
+img,
+video {
+  /* Making sure all images and videos are responsive */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  /* Removing bullet points from unordered lists */
+  list-style: none;
+}
+
+a {
+  /* Styling all links to match the text color and remove underlines */
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+i {
+  /* Setting the icon font size */
+  font-size: 1.5rem;
+}
+
+/* Header Section */
+header {
+  /* Flexbox to create a clean header layout with logo on the left and links on the right */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.logo {
+  /* The logo font size and making it clickable */
+  cursor: pointer;
+  font-size: 1.725rem;
+}
+
+.links {
+  /* Flex layout for the links in the header */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linkedin {
+  /* LinkedIn icon color */
+  color: #4a76ee;
+}
+
+.link {
+  /* Adding a little smooth transition to links for hover effect */
+  transition: 0.2s ease-in-out;
+}
+
+.link a {
+  /* Styling the links inside .link for a consistent look */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.2rem 0.5rem;
+  position: relative;
+}
+
+.link:hover {
+  /* Subtle hover effect to make the links pop a bit */
+  opacity: 0.7;
+  scale: 1.1;
+  transform: translateY(-2px);
+}
+
+.burguer {
+  cursor: pointer;
+  display: none;
+}
+
+.side-bar {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  padding: 20px 30px;
+  border-radius: 8px 0;
+  top: 0;
+  height: 100%;
+  width: 75vw;
+  right: 0;
+  background: #333;
+  z-index: 1000;
+}
+
+.side-bar nav ul {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  padding: 5px;
+  top: 5px;
+  right: 2px;
+}
+
+.side-bar nav ul li a {
+  color: var(--white);
+}
+
+@media (max-width: 800px) {
+  /* On smaller screens, hide the text next to icons */
+  .links .link a span {
+    display: none;
+  }
+}
+
+@media (max-width: 595px) {
+  .side-bar.active {
+    display: block;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0%;
+    background: #fff;
+    transition: width 0.2s ease;
+  }
+
+  .link a {
+    padding: 2px 0;
+  }
+
+  .link:hover {
+    /* Subtle hover effect to make the links pop a bit */
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .link:hover::after {
+    width: 100%;
+  }
+
+  .burguer {
+    display: block;
+  }
+}
+
+/* Main Content Section */
+.introduce {
+  /* Flexbox layout to introduce the content in a side-by-side format */
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.side-left {
+  max-width: 900px;
+}
+
+.side-right {
+  display: flex;
+  justify-content: center;
+}
+
+.side-left h2 {
+  /* Adjusting the font size for the main title based on screen size */
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.side-right img {
+  /* Making the image round and responsive */
+  border-radius: 50%;
+  max-width: 320px; /* Optional for max size */
+  height: auto;
+}
+
+.text {
+  /* Styling the text with margins and responsive font size */
+  margin: 10px 0;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+}
+
+@media (max-width: 900px) {
+  /* On medium screens, switch the layout to column-reverse */
+  .introduce {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Skills Section */
+section {
+  padding-top: 20px;
+}
+
+.skills {
+  padding-top: 50px;
+}
+
+.group {
+  /* Flex layout for the skill items */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.item {
+  /* Basic styling for skill items: adding background, borders, and hover effects */
+  cursor: pointer;
+  max-width: 100%;
+  padding: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid #e1e1e1;
+  transition: 0.2s ease-in-out;
+}
+
+.item:hover {
+  /* On hover, the skill item will slightly grow and move up */
+  opacity: 0.8;
+  transform: scale(1.1);
+  transform: translateY(-5px);
+}
+
+.item img {
+  /* Setting the size of skill icons */
+  width: 30px;
+}
+
+/* projects */
+.projects {
+  display: flex;
+  flex-direction: column;
+  padding-top: 75px;
+  gap: 20px;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.project {
+  display: flex;
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+.project:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.project:nth-child(odd) {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.project .img-project {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.project .img-project img {
+  border-radius: 5px;
+  max-width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.129);
+}
+
+.project .about {
+  max-width: 900px;
+}
+
+.project .img-project a {
+  display: flex;
+  gap: 15px;
+}
+
+.project .about h3 {
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  letter-spacing: 2px;
+}
+
+.project .about p {
+  margin: 10px 0;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+}
+
+@media (max-width: 768px) {
+  .project {
+    flex-direction: column;
+  }
+
+  .project .img-project svg {
+    height: 40px;
+    width: 40px;
+  }
+
+  .project:nth-child(even) {
+    flex-direction: column;
+  }
+}
+
+/* Contact Section */
+.contact {
+  /* Flexbox for the contact section with space between items */
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding-top: 75px;
+}
+
+.contact h2 {
+  /* Styling the contact title */
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  letter-spacing: 2px;
+}
+
+.info {
+  /* Basic padding for the contact info */
+  padding: 0.5rem 0;
+  font-family: clamp(1.5rem, 1.8vw, 1.75rem);
+}
+
+/* Form Styles */
+.form-content {
+  background-color: var(--white); /* White background for the form */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.form-content h4 {
+  /* Styling the form title */
+  text-align: center;
+  font-family: clamp(1.5rem, 1.8vw, 1.5rem);
+  color: #333;
+}
+
+.form {
+  /* Form layout with padding and space between elements */
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 0.75rem;
+}
+
+.form label {
+  /* Styling the form labels with bold text */
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #444;
+}
+
+input,
+textarea {
+  /* Styling input and textarea fields */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  max-width: 100%;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+textarea {
+  /* Ensuring the textarea has a minimum height */
+  min-height: 200px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-content button {
+  /* Styling the submit button */
+  padding: 0.75rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-content button:hover {
+  /* Button hover effect */
+  background-color: #0056b3;
+}
+
+.form-content button:disabled {
+  /* Disabling the button and styling it when it's disabled */
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* WhatsApp Section */
+.whatsapp {
+  display: flex;
+  justify-content: center;
+}
+
+.whatsapp span {
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.whatsapp span::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #578cff;
+}
+
+.msg-warn {
+  padding-top: 10px;
+  color: rgb(0, 143, 0);
+}
+
+.msg-warn.error {
+  color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact h2 {
+    text-align: center;
+  }
+
+  .form-content {
+    padding: 1rem;
+  }
+
+  .form label {
+    font-size: 0.9rem;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  input,
+  textarea {
+    font-size: 0.9rem;
+  }
+
+  .form-content button {
+    font-size: 0.9rem;
+  }
+}
+
+footer {
+  /* Footer with center alignment and subtle opacity */
+  text-align: center;
+  opacity: 0.5;
+  margin: 20px 0 20px;
+}
