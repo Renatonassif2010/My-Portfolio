@@ -95,7 +95,7 @@ header {
 
 .link {
   /* Adding a little smooth transition to links for hover effect */
-  transition: 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .link a {
@@ -110,8 +110,7 @@ header {
 .link:hover {
   /* Subtle hover effect to make the links pop a bit */
   opacity: 0.7;
-  scale: 1.1;
-  transform: translateY(-2px);
+  transform: scale(1.1) translateY(-2px);
 }
 
 .burguer {
@@ -120,7 +119,6 @@ header {
 }
 
 .side-bar {
-  display: none;
   opacity: 0;
   position: fixed;
   padding: 20px 30px;
@@ -131,6 +129,13 @@ header {
   right: 0;
   background: #333;
   z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.side-bar.active {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .side-bar nav ul {
@@ -160,12 +165,6 @@ header {
 }
 
 @media (max-width: 595px) {
-  .side-bar.active {
-    display: block;
-    transform: translateX(0);
-    opacity: 1;
-  }
-
   .links {
     display: none;
   }
@@ -266,19 +265,19 @@ section {
   padding: 0.7rem;
   border-radius: 50%;
   border: 1px solid #e1e1e1;
-  transition: 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .item:hover {
   /* On hover, the skill item will slightly grow and move up */
   opacity: 0.8;
-  transform: scale(1.1);
-  transform: translateY(-5px);
+  transform: scale(1.1) translateY(-5px);
 }
 
 .item img {
   /* Setting the size of skill icons */
   width: 30px;
+  height: 30px;
 }
 
 /* projects */
@@ -324,6 +323,9 @@ section {
   border-radius: 5px;
   max-width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.129);
+  /* Added width and height for CLS improvement */
+  width: 600px; /* Use a value that matches your HTML image's size */
+  height: 300px; /* Use a value that matches your HTML image's size */
 }
 
 .project .about {
@@ -378,7 +380,7 @@ section {
 .info {
   /* Basic padding for the contact info */
   padding: 0.5rem 0;
-  font-family: clamp(1.5rem, 1.8vw, 1.75rem);
+  font-size: clamp(1.125rem, 1.5vw, 1.2rem);
 }
 
 /* Form Styles */
@@ -395,7 +397,7 @@ section {
 .form-content h4 {
   /* Styling the form title */
   text-align: center;
-  font-family: clamp(1.5rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.5rem, 1.8vw, 1.5rem);
   color: #333;
 }
 
