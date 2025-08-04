@@ -12,19 +12,16 @@
 }
 
 * {
-  /* Resetting margins, padding, and box-sizing so everything behaves consistently */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
-  /* Applying the default font across the entire site */
   font-family: var(--font-family);
   font-weight: 400;
   font-style: normal;
 }
 
 html {
-  /* Smooth scrolling when clicking anchors or navigating */
   scroll-behavior: smooth;
 }
 
@@ -34,41 +31,35 @@ body {
 }
 
 body {
-  /* Body padding is responsive. It's 0, but we use clamp() to adjust it based on screen size */
   position: relative;
   padding: 0 clamp(1rem, 5vw, 50px);
   margin: 0 auto;
-  max-width: 1500px; /* Max width to keep the site from getting too wide */
+  max-width: 1500px;
   height: 100vh;
 }
 
 img,
 video {
-  /* Making sure all images and videos are responsive */
   max-width: 100%;
   height: auto;
   display: block;
 }
 
 ul {
-  /* Removing bullet points from unordered lists */
   list-style: none;
 }
 
 a {
-  /* Styling all links to match the text color and remove underlines */
   color: var(--text-color);
   text-decoration: none;
 }
 
 i {
-  /* Setting the icon font size */
   font-size: 1.5rem;
 }
 
 /* Header Section */
 header {
-  /* Flexbox to create a clean header layout with logo on the left and links on the right */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,30 +67,25 @@ header {
 }
 
 .logo {
-  /* The logo font size and making it clickable */
   cursor: pointer;
   font-size: 1.725rem;
 }
 
 .links {
-  /* Flex layout for the links in the header */
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .linkedin {
-  /* LinkedIn icon color */
   color: #4a76ee;
 }
 
 .link {
-  /* Adding a little smooth transition to links for hover effect */
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .link a {
-  /* Styling the links inside .link for a consistent look */
   display: flex;
   align-items: center;
   gap: 5px;
@@ -108,7 +94,6 @@ header {
 }
 
 .link:hover {
-  /* Subtle hover effect to make the links pop a bit */
   opacity: 0.7;
   transform: scale(1.1) translateY(-2px);
 }
@@ -158,7 +143,6 @@ header {
 }
 
 @media (max-width: 800px) {
-  /* On smaller screens, hide the text next to icons */
   .links .link a span {
     display: none;
   }
@@ -183,7 +167,6 @@ header {
   }
 
   .link:hover {
-    /* Subtle hover effect to make the links pop a bit */
     scale: 1;
     opacity: 1;
     transform: translateY(0);
@@ -200,7 +183,6 @@ header {
 
 /* Main Content Section */
 .introduce {
-  /* Flexbox layout to introduce the content in a side-by-side format */
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -324,12 +306,13 @@ section {
   max-width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.129);
   /* Added width and height for CLS improvement */
-  width: 600px; /* Use a value that matches your HTML image's size */
+  max-width: 800px; /* Use a value that matches your HTML image's size */
   height: 300px; /* Use a value that matches your HTML image's size */
+  object-fit: cover;
 }
 
 .project .about {
-  max-width: 900px;
+  width: 900px;
 }
 
 .project .img-project a {
@@ -347,7 +330,7 @@ section {
   font-size: clamp(1rem, 1.8vw, 1.125rem);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .project {
     flex-direction: column;
   }
