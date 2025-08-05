@@ -196,6 +196,7 @@ header {
 .side-right {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .side-left h2 {
@@ -218,7 +219,7 @@ header {
   font-size: clamp(1rem, 1.8vw, 1.125rem);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   /* On medium screens, switch the layout to column-reverse */
   .introduce {
     flex-direction: column-reverse;
