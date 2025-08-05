@@ -335,11 +335,6 @@ section {
     flex-direction: column;
   }
 
-  .project .img-project svg {
-    height: 40px;
-    width: 40px;
-  }
-
   .project:nth-child(even) {
     flex-direction: column;
   }
